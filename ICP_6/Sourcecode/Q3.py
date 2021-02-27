@@ -45,12 +45,12 @@ print('Silhouette score when k = 3 is :',score)
 # Applying PCA
 scler = StandardScaler() #Applying scaling
 scler.fit(x)
-# Apply transform to both the training set and the test set.
+# Applytraining set and the test set.
 x_scler = scler.transform(x)
 pca = PCA(2)
 x_pca = pca.fit_transform(x_scler)
 ndata = pd.DataFrame(data=x_pca)
-#elbow method to know the number of clusters
+#elbow model
 wcss = []
 for i in range(1,11):
     kmeans = KMeans(n_clusters=i,init='k-means++',max_iter=300,n_init=10,random_state=0)
@@ -63,7 +63,7 @@ plt.xlabel('Number of Clusters')
 plt.ylabel('Wcss')
 plt.show()
 # Appling Kmeans over PCA scaled features
-nclusters = 4 # this is the k in kmeans from above graph
+nclusters = 4
 km = KMeans(n_clusters=nclusters)
 km.fit(x_pca)
 #Silhouette score
