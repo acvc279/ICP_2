@@ -40,6 +40,6 @@ my_first_nn.add(Dense(1, activation='sigmoid')) # output layer
 #compilation
 my_first_nn.compile(loss='binary_crossentropy', optimizer='adam', metrics=['acc'])
 my_first_nn_fitted = my_first_nn.fit(X_train, Y_train, epochs=100,initial_epoch=0)
-#Summary with Accuracy
+#Summary with Accuracy After Normalization
 print(my_first_nn.summary())
 print(my_first_nn.evaluate(X_test, Y_test))
